@@ -27,7 +27,7 @@ module decode (
 	output wire FP;
 	output wire [1:0] ImmSrc;
 	output wire [1:0] RegSrc;
-	output reg [2:0] ALUControl;
+	output reg [3:0] ALUControl;
 	reg [11:0] controls;
 	wire Branch;
 	wire ALUOp;
@@ -56,18 +56,19 @@ module decode (
 	always @(*)
 		if (ALUOp) begin
 			case (Funct[4:1])
-				4'b0100: ALUControl = 3'b000;
-				4'b0010: ALUControl = 3'b001;
-				4'b0000: ALUControl = 3'b010;
-				4'b1100: ALUControl = 3'b011;
-				4'b0001: ALUControl = 3'b100;
-				default: ALUControl = 3'bxxx;
+				4'b0100: ALUControl = 4'b0000;
+				4'b0010: ALUControl = 4'b0001;
+				4'b0000: ALUControl = 4'b0010;
+				4'b1100: ALUControl = 4'b0011;
+				4'b0001: ALUControl = 4'b0100;
+				4'b1101: ALUControl = 4'b0111;
+				default: ALUControl = 4'bxxxx;
 			endcase
 			FlagW[1] = Funct[0];
-			FlagW[0] = Funct[0] & ((ALUControl == 3'b000) | (ALUControl == 3'b001));
+			FlagW[0] = Funct[0] & ((ALUControl == 4'b0000) | (ALUControl == 4'b0001));
 		end
 		else begin
-			ALUControl = 3'b000;
+			ALUControl = 4'b0000;
 			FlagW = 2'b00;
 		end
 	assign PCS = ((Rd == 4'b1111) & RegW) | Branch;

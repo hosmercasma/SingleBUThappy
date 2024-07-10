@@ -27,7 +27,7 @@ module arm (
 	wire FP;
 	wire [1:0] RegSrc;
 	wire [1:0] ImmSrc;
-	wire [2:0] ALUControl;
+	wire [3:0] ALUControl;
 	controller c(
 		.clk(clk),
 		.reset(reset),
