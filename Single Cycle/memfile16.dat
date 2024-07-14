@@ -1,0 +1,15 @@
+E3A00701 // MOV R0, #0x1000         ; Cargar un valor en R0 (half-precision)
+E3800702 // ORR R0, R0, #0x2000     ; Modificar el valor de R0
+E3A01703 // MOV R1, #0x3000         ; Cargar otro valor en R1 (half-precision)
+E3811804 // ORR R1, R1, #0x4000     ; Modificar el valor de R1
+EE201B10 // VMOV H1, R0             ; Mover el valor de R0 a H1 (half-precision)
+EE211B10 // VMOV H2, R1             ; Mover el valor de R1 a H2 (half-precision)
+EE201B10 // FADD H3, H1, H2         ; Sumar H1 y H2, resultado en H3 (half-precision)
+
+E3A03705 // MOV R3, #0x5000         ; Cargar un valor en R3 (half-precision)
+E3833706 // ORR R3, R3, #0x6000     ; Modificar el valor de R3
+E3A04707 // MOV R4, #0x7000         ; Cargar otro valor en R4 (half-precision)
+E3844808 // ORR R4, R4, #0x8000     ; Modificar el valor de R4
+EE221B10 // VMOV H4, R3             ; Mover el valor de R3 a H4 (half-precision)
+EE231B10 // VMOV H5, R4             ; Mover el valor de R4 a H5 (half-precision)
+EE221B10 // FMUL H6, H4, H5         ; Multiplicar H4 y H5, resultado en H6 (half-precision)

@@ -1,0 +1,17 @@
+E3A0073F // MOV R0, #0xFC0000       ; Cargar un valor en R0 (single-precision)
+E3800101 // ORR R0, R0, #0x40000000 ; Modificar el valor de R0
+E3A01539 // MOV R1, #0xE400000      ; Cargar otro valor en R1 (single-precision)
+E3811203 // ORR R1, R1, #0x30000000 ; Modificar el valor de R1
+EEB00B40 // VMOV S1, R0             ; Mover el valor de R0 a S1 (single-precision)
+EEB01B40 // VMOV S2, R1             ; Mover el valor de R1 a S2 (single-precision)
+EE200A00 // FADD S0, S1, S2         ; Sumar S1 y S2, resultado en S0 (single-precision)
+
+E3A03903 // MOV R3, #0xC000         ; Cargar un valor en R3 (single-precision)
+E383371E // ORR R3, R3, #0x780000   ; Modificar el valor de R3
+E38334C3 // ORR R3, R3, #0xC3000000 ; Modificar el valor de R3
+E3A04901 // MOV R4, #0x4000         ; Cargar otro valor en R4 (single-precision)
+E38448D9 // ORR R4, R4, #0xD90000   ; Modificar el valor de R4
+E38444C1 // ORR R4, R4, #0xC1000000 ; Modificar el valor de R4
+EEB22B40 // VMOV S4, R3             ; Mover el valor de R3 a S4 (single-precision)
+EEB23B40 // VMOV S5, R4             ; Mover el valor de R4 a S5 (single-precision)
+EE420A05 // FMUL S0, S4, S5         ; Multiplicar S4 y S5, resultado en S0 (single-precision)
